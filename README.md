@@ -7,5 +7,5 @@ A solution to the CIE GCSE Computer Science Pre-release problem written in Pytho
 
 # oneliner.py
 - Consists of one line of code which runs the whole program
-- I have included the input data set under input.txt
+- I have included the input dataset under input.txt
 - Uses: exec, split, recursion, map, isdigit, list comprehensions, enumerate, fstrings
