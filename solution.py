@@ -47,10 +47,8 @@ while True:
         print("Please enter a valid day.")
         continue # restarts at the top of the loop
 
-    # to convert the day into an index in a list (e.g. Mon1 -> 0, Tue2 -> 6)
-    daypos = daynames.index(day[:3])
-    weekpos = (int(day[-1])-1)*5
-    index = daypos + weekpos
+    # to convert the day into an index in a list (e.g. Mon1 -> 0, Tue2 -> 6) - see README for more info
+    index = daynames.index(day[:3])+(int(day[-1])-1)*5
 
     total = 0 # total amount of late buses
     for busindex,bus in enumerate(buses): # keeps track of index and item each loop
