@@ -3,7 +3,7 @@ A solution to the CIE GCSE Computer Science Pre-release problem written in Pytho
 
 # solution.py
 - Includes tasks 1, 2 & 3 with comments.
-- Uses: try-except, enumerate, filter, continue, index, isdigit, lambdas, max
+- Uses: try-except, enumerate, continue, index, isdigit, max
 
 ### Task 3 explanation
 ```
