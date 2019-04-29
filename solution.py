@@ -21,7 +21,7 @@ for b in range(6):
 
 # Task 2
 for index,bus in enumerate(buses): # In each loop, creates a temporary variable which tracks the position and item
-    lates_only = list(filter(lambda x: x < 0,bus)) # finds the late entries by filtering for results less than 0
+    lates_only = [i for i in bus if i < 0] # finds the late entries by filtering for results less than 0
     
     print(busnames[index],"had",len(lates_only),"late arrivals.")
     print(busnames[index],"averaged",sum(bus)/len(bus),"minutes late.")
