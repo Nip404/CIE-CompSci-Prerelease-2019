@@ -31,7 +31,7 @@ for index,bus in enumerate(buses): # In each loop, creates a temporary variable 
     else: # if there weren't any lates, program would do 0/0, causing a ZeroDivisionError
         print("There were no lates on",busnames[index]+"'s route.")
 
-    if len(lates_only) == max(buses,key=len): # if 1st place was tied, it prints all buses who match the most lates
+    if len(lates_only) == max([[i for i in bus if i < 0] for bus in buses],key=len): # if 1st place was tied, it prints all buses who match the most lates
         print(busnames[index],"had the most days late.")
 
 #3
