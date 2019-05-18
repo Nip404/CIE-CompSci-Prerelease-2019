@@ -20,18 +20,18 @@ for b in range(6):
     buses.append(bus) # after 20 loops, finishes entering for each bus and appends it to the bus master list
 
 # Task 2
+lates = [[i for i in bus if i < 0] for bus in buses]
+
 for index,bus in enumerate(buses): # In each loop, creates a temporary variable which tracks the position and item
-    lates_only = [i for i in bus if i < 0] # finds the late entries by filtering for results less than 0
-    
-    print(busnames[index],"had",len(lates_only),"late arrivals.")
+    print(busnames[index],"had",len(lates[index]),"late arrivals.")
     print(busnames[index],"averaged",sum(bus)/len(bus),"minutes late.")
 
-    if len(lates_only): # if there were any lates on this bus; to avoid division by 0
-        print(busnames[index],"averaged",sum(lates_only)/len(lates_only),"minutes only on late days.")
+    if len(lates[index]): # if there were any lates on this bus; to avoid division by 0
+        print(busnames[index],"averaged",sum(lates[index])/len(lates[index]),"minutes only on late days.")
     else: # if there weren't any lates, program would do 0/0, causing a ZeroDivisionError
         print("There were no lates on",busnames[index]+"'s route.")
 
-    if len(lates_only) == max([[i for i in bus if i < 0] for bus in buses],key=len): # if 1st place was tied, it prints all buses who match the most lates
+    if len(lates[index]) == len(max(lates,key=len)): # if 1st place was tied, it prints all buses who match the most lates
         print(busnames[index],"had the most days late.")
 
 #3
