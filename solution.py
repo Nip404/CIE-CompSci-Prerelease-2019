@@ -1,8 +1,8 @@
 # Task 1
 buses = [] # bus master list - contains all 6 bus data
 days = 20
-daynames = ["Mon","Tue","Wed","Thu","Fri"]
-busnames = ["busA","busB","busC","busD","busE","busF"]
+daynames = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+busnames = ["busA", "busB", "busC", "busD", "busE", "busF"]
 
 for b in range(6):
     bus = [] # creates a new bus 6 times
@@ -10,7 +10,7 @@ for b in range(6):
     for day in range(days): # For each bus, input 20 days worth of results
         while True: # continues input until input is valid
             try:
-                print("Prompting for",busnames[b],"on",daynames[day%5]+str((day//5) + 1)) # Calculates week number
+                print("Prompting for", busnames[b], "on", daynames[day%5] + str((day//5) + 1)) # Calculates week number
                 minutes = int(input("Enter minutes late here: ")) # tries to convert into integer; if failed, goes to except and restarts loop
                 break
             except:
@@ -22,17 +22,17 @@ for b in range(6):
 # Task 2
 lates = [[i for i in bus if i < 0] for bus in buses]
 
-for index,bus in enumerate(buses): # In each loop, creates a temporary variable which tracks the position and item
-    print(busnames[index],"had",len(lates[index]),"late arrivals.")
-    print(busnames[index],"averaged",sum(bus)/len(bus),"minutes late.")
+for index, bus in enumerate(buses): # In each loop, creates a temporary variable which tracks the position and item
+    print(busnames[index], "had",len(lates[index]), "late arrivals.")
+    print(busnames[index], "averaged", sum(bus)/len(bus), "minutes late.")
 
     if len(lates[index]): # if there were any lates on this bus; to avoid division by 0
-        print(busnames[index],"averaged",sum(lates[index])/len(lates[index]),"minutes only on late days.")
+        print(busnames[index],"averaged", sum(lates[index])/len(lates[index]), "minutes only on late days.")
     else: # if there weren't any lates, program would do 0/0, causing a ZeroDivisionError
-        print("There were no lates on",busnames[index]+"'s route.")
+        print("There were no lates on", busnames[index] + "'s route.")
 
-    if len(lates[index]) == len(max(lates,key=len)): # if 1st place was tied, it prints all buses who match the most lates
-        print(busnames[index],"had the most days late.")
+    if len(lates[index]) == len(max(lates, key=len)): # if 1st place was tied, it prints all buses who match the most lates
+        print(busnames[index], "had the most days late.")
 
 #3
 while True:
@@ -51,9 +51,9 @@ while True:
     index = daynames.index(day[:3]) + (int(day[-1])-1)*5
 
     total = 0 # total amount of late buses
-    for busindex,bus in enumerate(buses): # keeps track of index and item each loop
+    for busindex, bus in enumerate(buses): # keeps track of index and item each loop
         if bus[index] < 0:
             total += 1
-            print(busnames[busindex],"was late on",day,"by",-bus[index],"minutes.") # use '-bus[index]' because late minutes are in the negative
+            print(busnames[busindex], "was late on", day, "by", -bus[index], "minutes.") # use '-bus[index]' because late minutes are in the negative
 
-    print(total,"buses were late on",day+".")    
+    print(total, "buses were late on", day + ".")    
